@@ -34,7 +34,7 @@
           path: "",
           table: {
             repos:true,
-            columns: ["#","Local","Current Branch", "Remote","Remote URL"],
+            columns: ["#","Local","Current Branch", "Remote", "Actions","Remote URL"],
             rows: []
           }
         }
@@ -53,7 +53,9 @@
               local:item.local,
               currentBranch:item.currentBranch,
               remote:item.remote,
-              remoteUrl:item.remoteUrl}));
+              remoteUrl:item.remoteUrl,
+              path:item.path
+            }));
           }
           else{
             this.table.rows = repositories.map((item,index)=> ({fields:[
@@ -61,7 +63,8 @@
               item.local, 
               item.currentBranch,
               item.remote,
-              item.remoteUrl]}));
+              item.remoteUrl,
+              item.path]}));
           }
         },
         setDirectory(){
